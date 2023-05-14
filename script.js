@@ -4,8 +4,10 @@ window.addEventListener('load', function() {
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d');
     
-    const  CANVAS_WIDTH = canvas.width = 800;
-    const  CANVAS_HEIGHT = canvas.height = 800;
+    const  CANVAS_WIDTH = canvas.width = 400;
+    const  CANVAS_HEIGHT = canvas.height = 400;
+    
+    let canvasPositon = canvas.getBoundingClientRect();
     
 
     class Particle{
@@ -62,7 +64,7 @@ window.addEventListener('load', function() {
             this.particleArray = [];
             this.image = document.getElementById('image1');
             this.imageWidth = this.image.width * 0.3;
-            this.imgaeHeight = this.image.height * 0.3  
+            this.imgaeHeight = this.image.height * 0.3;  
             this.centerX = this.width * 0.5; 
             this.centerY = this.height * 0.5;
             this.x = this.centerX - this.imageWidth * 0.5;
@@ -74,13 +76,13 @@ window.addEventListener('load', function() {
                 y: undefined
             }
             window.addEventListener('mousemove', event => {
-                this.mouse.x = event.x;
-                this.mouse.y = event.y;
+                this.mouse.x = event.x - canvasPositon.x;
+                this.mouse.y = event.y - canvasPositon.y;
             });
             window.addEventListener('touchmove', event => {
                 console.log(event);
-                this.mouse.x = event.changedTouches[0].clientX;
-                this.mouse.y = event.changedTouches[0].clientY;
+                this.mouse.x = event.changedTouches[0].clientX - canvasPositon.x;
+                this.mouse.y = event.changedTouches[0].clientY - canvasPositon.y;
             })
         }
 
