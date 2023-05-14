@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+   display: none;
+}
+
+#canvas1{
+    border: 3px solid black;
+    background-color: white;
+}
