@@ -80,7 +80,7 @@ window.addEventListener('load', function() {
                 this.mouse.y = event.y - canvasPositon.y;
             });
             window.addEventListener('touchmove', event => {
-                console.log(event);
+                event.preventDefault();
                 this.mouse.x = event.changedTouches[0].clientX - canvasPositon.x;
                 this.mouse.y = event.changedTouches[0].clientY - canvasPositon.y;
             })
